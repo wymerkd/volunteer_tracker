@@ -28,12 +28,16 @@ class Project
   end
 
   def self.find(id)
-  projects = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
-  title = projects.fetch("title")
-  id = projects.fetch("id").to_i
-  Project.new({:title => title, :id => id})
-end
+    projects = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
+    title = projects.fetch("title")
+    id = projects.fetch("id").to_i
+    Project.new({:title => title, :id => id})
+  end
 
+  def update(title)
+  @title = title
+  DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+end
   # def self.clear
   # DB.exec("DELETE FROM projects *;")
   # end
