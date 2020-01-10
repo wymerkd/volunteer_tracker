@@ -8,14 +8,14 @@ class Project
   end
 
   def self.all
-  returned_projects = DB.exec("SELECT * FROM projects;")
-  projects = []
-  returned_projects.each() do |project|
-    title = project.fetch("title")
-    id = project.fetch("id").to_i
-    projects.push(Project.new({:title => title, :id => id}))
-  end
-  projects
+    returned_projects = DB.exec("SELECT * FROM projects;")
+    projects = []
+    returned_projects.each() do |project|
+      title = project.fetch("title")
+      id = project.fetch("id").to_i
+      projects.push(Project.new({:title => title, :id => id}))
+    end
+    projects
   end
 
   def save
@@ -24,7 +24,7 @@ class Project
   end
 
   def ==(other)
-  self.class.eql?(other.class) & self.title.eql?(other.title)
+    self.class.eql?(other.class) & self.title.eql?(other.title)
   end
 
   def self.find(id)
@@ -42,7 +42,8 @@ class Project
   def delete
     DB.exec("DELETE FROM projects WHERE id = #{@id};")
   end
-  # def self.clear
-  # DB.exec("DELETE FROM projects *;")
-  # end
+
+  def volunteers
+    Volunteer.find_by_project(self.id)
+  end
 end
