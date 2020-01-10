@@ -11,4 +11,8 @@ class Project
     result = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;")
     @id = result.first().fetch("id").to_i
   end
+
+  def ==(other)
+  self.class.eql?(other.class) & self.title.eql?(other.title)
+  end
 end
