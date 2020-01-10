@@ -1,0 +1,19 @@
+<form action="/projects">
+  <div class="form-group">
+    <label for="search_input">Search</label>
+    <input id="search" name="search_input" class="form-control" type="text">
+  </div>
+  <button type="submit" class="danger">SEARCH!</button>
+</form>
+
+<% if @projects.any? %>
+<ul>
+  <% @projects.each do |project| %>
+  <h4><a href="/projects/<%= project.id %>"><%= project.name %></a></h4>
+  <% end %>
+</ul>
+<% else %>
+<p>There are currently no projects to display.</p>
+<% end %>
+
+<a href="/projects/new">Add a new project</a>
