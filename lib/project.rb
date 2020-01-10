@@ -27,6 +27,13 @@ class Project
   self.class.eql?(other.class) & self.title.eql?(other.title)
   end
 
+  def self.find(id)
+  projects = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
+  title = projects.fetch("title")
+  id = projects.fetch("id").to_i
+  Project.new({:title => title, :id => id})
+end
+
   # def self.clear
   # DB.exec("DELETE FROM projects *;")
   # end
