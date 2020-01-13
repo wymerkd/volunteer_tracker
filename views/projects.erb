@@ -1,17 +1,19 @@
-<form action="/projects" method="post">
-  <div class="form-group">
-    <label for="title">Current Projects</label>
-    <input id="n" name="title" class="form-control" type="text">
-  </div>
-  <button type="submit" class="btn">Create Project</button>
-</form>
+<h2>Current Projects:</h2>
 
 <% if @projects.any? %>
-  <ul>
-    <% @projects.each do |project| %>
-      <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
-    <% end %>
-  </ul>
+<ul>
+  <% @projects.each do |project| %>
+  <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
+  <% end %>
+</ul>
 <% else %>
-  <p>There are currently no records to display.</p>
+<p>There are currently no projects to display.</p>
 <% end %>
+
+<form action="/projects" method="post">
+  <div class="form-group">
+    <label for="title">To create a project, enter a new project title:</label>
+    <input id="n" name="title" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn-success">Create Project</button>
+</form>
