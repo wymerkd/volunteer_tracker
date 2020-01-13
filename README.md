@@ -23,8 +23,6 @@ _This project demonstrates my current skills in Ruby. The application allows a u
 * _In the terminal, run $ bundle install_
 * _Then run $ ruby app.rb_
 * _In your browser connect to localhost:4567_
-* _Or_
-* _Open the application using the link provided ( )_
 
 ## Known Bugs
 
