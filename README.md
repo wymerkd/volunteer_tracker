@@ -24,7 +24,7 @@ _This project demonstrates my current skills in Ruby. The application allows a u
 * _Then run $ ruby app.rb_
 * _In your browser connect to localhost:4567_
 * _Or_
-* _Open the application using the link provided (https://aqueous-dawn-46481.herokuapp.com/)_
+* _Open the application using the link provided ()_
 
 ## Known Bugs
 
