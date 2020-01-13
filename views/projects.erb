@@ -1,10 +1,10 @@
-<!-- <form action="/projects">
+<form action="/projects" method="post">
   <div class="form-group">
-    <label for="search">Search</label>
-    <input id="search" name="search" class="form-control" type="text">
+    <label for="title">Current Projects</label>
+    <input id="n" name="title" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn">Search</button>
-</form> -->
+  <button type="submit" class="btn">Create Project</button>
+</form>
 
 <% if @projects.any? %>
   <ul>
@@ -15,5 +15,3 @@
 <% else %>
   <p>There are currently no records to display.</p>
 <% end %>
-
-<a href="/projects/new">Add a new project</a>
